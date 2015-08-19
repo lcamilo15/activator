@@ -10,7 +10,8 @@ RUN cd /tmp \
     && unzip typesafe-activator.zip -d /usr/local \
     && mv /usr/local/activator-dist-$ACTIVATOR_VERSION /usr/local/activator \
     && rm typesafe-activator.zip \ 
-    && ln -s /usr/local/activator/activator /usr/bin/activator 
+    && dnf -y install git \
+    && ln -s /usr/local/activator/activator /usr/bin/activator
 
 EXPOSE 9000 8888
 RUN mkdir /app
