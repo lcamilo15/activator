@@ -1,6 +1,6 @@
 FROM    lcamilo15/fedora-jdk
 MAINTAINER  Luis Camilo <lcamilo15@gmail.com>
-ENV         ACTIVATOR_VERSION 1.3.5
+ENV         ACTIVATOR_VERSION 1.3.6
 
 # INSTALL TYPESAFE ACTIVATOR
 RUN cd /tmp \
@@ -9,8 +9,8 @@ RUN cd /tmp \
     && mv /usr/local/activator-dist-$ACTIVATOR_VERSION /usr/local/activator \
     && rm typesafe-activator.zip \ 
     && dnf -y install git \
-    && ln -s /usr/local/activator/activator /usr/bin/activator
+    && ln -s /usr/local/activator/activator /usr/bin/activator \
+    && mkdir /app
 
 EXPOSE 9000 8888
-RUN mkdir /app
 WORKDIR /app
