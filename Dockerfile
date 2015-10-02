@@ -10,7 +10,9 @@ RUN cd /tmp \
     && rm typesafe-activator.zip \ 
     && dnf -y install git \
     && ln -s /usr/local/activator/activator /usr/bin/activator \
-    && mkdir /app
+    && mkdir /app \
+    && activator new dummy_app play-java \
+    && cd dummy_app && ./activator compile
 
 EXPOSE 9000 8888
 WORKDIR /app
